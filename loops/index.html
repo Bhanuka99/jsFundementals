@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops and Iterations</title>
+</head>
+<body>
+    <h1>Loops and Iterations</h1>
+    <ul id="list">
+    </ul>
+    <script>
+        //for loop
+        let list = document.getElementById("list");      
+        for(let i = 0; i < 25; i++){
+            if(i % 2 == 0){
+                continue;
+            }
+            let listItem = document.createElement('li');
+            let text = document.createTextNode(i);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+            if(i == 15){
+                break;
+            }
+        }
+        //while loop
+        let x = 0;
+        while(x<10){
+            let listItem = document.createElement('li');
+            let text = document.createTextNode("x is "+ x);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+            x+=2;
+        }
+        //do while
+        x = 10;
+        do{
+            let listItem = document.createElement('li');
+            let text = document.createTextNode("do while x is "+x);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+            x+=2;
+        }while(x < 0)
+
+        //for in loop
+        let user = {
+            name:"bhanuka",
+            age:25,
+            address:"kandy"
+        }
+        for (const data in user){
+            let listItem = document.createElement('li');
+            let text = document.createTextNode(data+" is "+user[data]);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+        }
+        //array
+        let myArray = ['saman','kumara','ajith','nimal'];
+        for (const arrayData in myArray){
+            let listItem = document.createElement('li');
+            let text = document.createTextNode(arrayData+" is "+myArray[arrayData]);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+        } 
+        //for of
+        for (const data of myArray) {
+            let listItem = document.createElement('li');
+            let text = document.createTextNode("myArray data is "+data);
+            listItem.appendChild(text);
+            list.appendChild(listItem);
+        }
+        //-----------------------------------------
+        let users = [
+            {name:"ruwan",age:25},
+            {name:"wiaml",age:40},
+            {name:"bimal",age:44}
+
+        ]
+        let names= [];
+
+        for (const user of users) {
+            names.push(user.name)
+        } 
+        console.log(names);
+        
+        //Map function 
+        let age = users.map(function(user){
+            return user.age;
+        })
+        console.log(age);
+
+        //filter
+
+        let filtered = users.filter(function(user){
+            return user.age>25;
+        })
+        console.log(filtered);
+
+    </script>
+</body>
+</html>
